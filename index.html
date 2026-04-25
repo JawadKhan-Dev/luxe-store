@@ -1,743 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUXE | Premium Men's Collection</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — LUXE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="admin.css">
 </head>
-<body>
+<body class="admin-body">
 
-    <!-- ========== LOADER ========== -->
-    <div id="loader">
-        <div class="loader-content">
-            <div class="loader-logo">LUXE</div>
-            <div class="loader-bar"><div class="loader-fill"></div></div>
-        </div>
+<!-- ADMIN SIDEBAR -->
+<aside class="admin-sidebar" id="adminSidebar">
+  <div class="admin-brand">
+    <div class="admin-logo">LUXE</div>
+    <div class="admin-role">Admin Panel</div>
+  </div>
+
+  <nav class="admin-nav">
+    <div class="admin-nav-group">
+      <span class="nav-group-label">Main</span>
+      <a href="#" class="admin-link active" data-section="dashboard">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+      </a>
+      <a href="#" class="admin-link" data-section="products">
+        <i class="fa-solid fa-boxes-stacked"></i> Products
+        <span class="nav-badge">12</span>
+      </a>
+      <a href="#" class="admin-link" data-section="orders">
+        <i class="fa-solid fa-bag-shopping"></i> Orders
+        <span class="nav-badge new">3 New</span>
+      </a>
+      <a href="#" class="admin-link" data-section="customers">
+        <i class="fa-solid fa-users"></i> Customers
+      </a>
     </div>
-
-    <!-- ========== HEADER / NAVBAR ========== -->
-    <header id="header">
-        <nav class="navbar">
-            <div class="nav-left">
-                <a href="shop.html" class="nav-link">Collections</a>
-                <a href="shop.html?cat=shoes" class="nav-link">New Arrivals</a>
-                <a href="shop.html" class="nav-link">Sale</a>
-
-            </div>
-
-            <div class="nav-logo">
-                <a href="index.html">LUXE</a>
-            </div>
-
-            <div class="nav-right">
-                <a href="#" class="nav-link"><i class="fa-regular fa-user"></i></a>
-                <a href="#" class="nav-link"><i class="fa-regular fa-heart"></i></a>
-                <a href="cart.html" class="nav-link cart-icon">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span class="cart-count">0</span>
-                </a>
-                <button class="hamburger" id="hamburger">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#">Home</a>
-            <a href="#">Collections</a>
-            <a href="#">New Arrivals</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
-    </header>
-
-    <!-- ========== HERO SECTION ========== -->
-    <section class="hero" id="home">
-        <div class="hero-slider">
-            <!-- Slide 1 -->
-            <div class="slide active" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);">
-                <div class="hero-content">
-                    <span class="hero-tag fade-in-up">New Season 2025</span>
-                    <h1 class="hero-title fade-in-up">The Art of<br><em>Luxury Footwear</em></h1>
-                    <p class="hero-subtitle fade-in-up">Handcrafted perfection for the modern gentleman</p>
-                    <div class="hero-buttons fade-in-up">
-                        <a href="#collections" class="btn btn-primary">Shop Now</a>
-                        <a href="#" class="btn btn-outline">Explore</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-image-wrapper">
-                        <!-- Replace src with your actual shoe image -->
-                        <div class="hero-placeholder shoe-placeholder">
-                            <i class="fa-solid fa-shoe-prints"></i>
-                            <span>Luxury Shoes</span>
-                        </div>
-                    </div>
-                    <div class="hero-circle"></div>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="slide" style="background: linear-gradient(135deg, #1a0a00 0%, #2d1b00 100%);">
-                <div class="hero-content">
-                    <span class="hero-tag">Signature Scents</span>
-                    <h1 class="hero-title">Where Fragrance<br><em>Meets Luxury</em></h1>
-                    <p class="hero-subtitle">Exclusive perfume collections from the world's finest houses</p>
-                    <div class="hero-buttons">
-                        <a href="#collections" class="btn btn-primary">Discover</a>
-                        <a href="#" class="btn btn-outline">Our Story</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-image-wrapper">
-                        <div class="hero-placeholder perfume-placeholder">
-                            <i class="fa-solid fa-spray-can-sparkles"></i>
-                            <span>Premium Perfumes</span>
-                        </div>
-                    </div>
-                    <div class="hero-circle"></div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="slide" style="background: linear-gradient(135deg, #0a0a0a 0%, #0d1b2a 100%);">
-                <div class="hero-content">
-                    <span class="hero-tag">Master Timepieces</span>
-                    <h1 class="hero-title">Time Crafted<br><em>to Perfection</em></h1>
-                    <p class="hero-subtitle">Swiss precision meets timeless elegance</p>
-                    <div class="hero-buttons">
-                        <a href="#collections" class="btn btn-primary">View Watches</a>
-                        <a href="#" class="btn btn-outline">Heritage</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-image-wrapper">
-                        <div class="hero-placeholder watch-placeholder">
-                            <i class="fa-solid fa-clock"></i>
-                            <span>Luxury Watches</span>
-                        </div>
-                    </div>
-                    <div class="hero-circle"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slider Controls -->
-        <div class="slider-controls">
-            <button class="slider-btn prev" id="prevSlide"><i class="fa-solid fa-chevron-left"></i></button>
-            <div class="slider-dots">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-                <span class="dot" data-index="2"></span>
-            </div>
-            <button class="slider-btn next" id="nextSlide"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- ========== MARQUEE STRIP ========== -->
-    <div class="marquee-section">
-        <div class="marquee-track">
-            <span>LUXURY SHOES</span><span>✦</span>
-            <span>PREMIUM PERFUMES</span><span>✦</span>
-            <span>DESIGNER WATCHES</span><span>✦</span>
-            <span>MEN'S ACCESSORIES</span><span>✦</span>
-            <span>LUXURY SHOES</span><span>✦</span>
-            <span>PREMIUM PERFUMES</span><span>✦</span>
-            <span>DESIGNER WATCHES</span><span>✦</span>
-            <span>MEN'S ACCESSORIES</span><span>✦</span>
-        </div>
+    <div class="admin-nav-group">
+      <span class="nav-group-label">Manage</span>
+      <a href="#" class="admin-link" data-section="categories">
+        <i class="fa-solid fa-tags"></i> Categories
+      </a>
+      <a href="#" class="admin-link" data-section="analytics">
+        <i class="fa-solid fa-chart-bar"></i> Analytics
+      </a>
+      <a href="#" class="admin-link" data-section="settings">
+        <i class="fa-solid fa-gear"></i> Settings
+      </a>
     </div>
+  </nav>
 
-    <!-- ========== ALL COLLECTIONS ========== -->
-    <section class="collections" id="collections">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Curated For You</span>
-                <h2 class="section-title">All Collections</h2>
-                <p class="section-subtitle">Explore our hand-picked luxury categories</p>
-            </div>
+  <div class="admin-sidebar-footer">
+    <div class="admin-user">
+      <div class="admin-avatar">AD</div>
+      <div>
+        <strong>Admin User</strong>
+        <span>Super Admin</span>
+      </div>
+    </div>
+    <a href="../index.html" class="admin-link" style="margin-top:8px;opacity:0.6">
+      <i class="fa-solid fa-arrow-left"></i> Back to Store
+    </a>
+  </div>
+</aside>
 
-            <div class="collections-grid">
-                <div class="collection-card large reveal" data-category="shoes">
-                    <div class="card-image">
-                        <div class="card-placeholder"><i class="fa-solid fa-shoe-prints"></i></div>
-                    </div>
-                    <div class="card-overlay">
-                        <h3>Luxury Footwear</h3>
-                        <p>156 Products</p>
-                        <a href="#" class="card-btn">Explore</a>
-                    </div>
-                </div>
+<!-- ADMIN MAIN -->
+<div class="admin-main" id="adminMain">
 
-                <div class="collection-card reveal" data-category="perfumes">
-                    <div class="card-image">
-                        <div class="card-placeholder"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-                    </div>
-                    <div class="card-overlay">
-                        <h3>Signature Perfumes</h3>
-                        <p>89 Products</p>
-                        <a href="#" class="card-btn">Explore</a>
-                    </div>
-                </div>
+  <!-- Top Bar -->
+  <header class="admin-topbar">
+    <div class="topbar-left">
+      <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <h2 class="topbar-title" id="pageTitle">Dashboard</h2>
+    </div>
+    <div class="topbar-right">
+      <div class="admin-search">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" placeholder="Search anything...">
+      </div>
+      <button class="topbar-icon"><i class="fa-regular fa-bell"></i><span class="notif-dot"></span></button>
+      <a href="../index.html" class="topbar-store-link">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Store
+      </a>
+    </div>
+  </header>
 
-                <div class="collection-card reveal" data-category="watches">
-                    <div class="card-image">
-                        <div class="card-placeholder"><i class="fa-solid fa-clock"></i></div>
-                    </div>
-                    <div class="card-overlay">
-                        <h3>Master Timepieces</h3>
-                        <p>64 Products</p>
-                        <a href="#" class="card-btn">Explore</a>
-                    </div>
-                </div>
+  <!-- CONTENT SECTIONS -->
+  <div class="admin-content">
 
-                <div class="collection-card reveal" data-category="accessories">
-                    <div class="card-image">
-                        <div class="card-placeholder"><i class="fa-solid fa-glasses"></i></div>
-                    </div>
-                    <div class="card-overlay">
-                        <h3>Men's Accessories</h3>
-                        <p>210 Products</p>
-                        <a href="#" class="card-btn">Explore</a>
-                    </div>
-                </div>
-            </div>
+    <!-- DASHBOARD -->
+    <section id="section-dashboard" class="admin-section active">
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon revenue"><i class="fa-solid fa-dollar-sign"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Total Revenue</span>
+            <strong class="kpi-value">$284,920</strong>
+            <span class="kpi-change up"><i class="fa-solid fa-arrow-trend-up"></i> +18.4% this month</span>
+          </div>
         </div>
+        <div class="kpi-card">
+          <div class="kpi-icon orders"><i class="fa-solid fa-bag-shopping"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Total Orders</span>
+            <strong class="kpi-value">1,847</strong>
+            <span class="kpi-change up"><i class="fa-solid fa-arrow-trend-up"></i> +12.1% this month</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon customers"><i class="fa-solid fa-users"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Total Customers</span>
+            <strong class="kpi-value">12,542</strong>
+            <span class="kpi-change up"><i class="fa-solid fa-arrow-trend-up"></i> +8.6% this month</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon products"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Products Active</span>
+            <strong class="kpi-value">519</strong>
+            <span class="kpi-change neutral">4 Low stock</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="charts-row">
+        <div class="chart-card wide">
+          <div class="chart-header">
+            <h3>Revenue Overview</h3>
+            <div class="chart-filter">
+              <button class="active">7D</button>
+              <button>1M</button>
+              <button>3M</button>
+              <button>1Y</button>
+            </div>
+          </div>
+          <canvas id="revenueChart" height="80"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header"><h3>Sales by Category</h3></div>
+          <canvas id="categoryChart" height="180"></canvas>
+          <div class="chart-legend" id="catLegend"></div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="dashboard-bottom">
+        <!-- Recent Orders -->
+        <div class="admin-table-card">
+          <div class="table-card-header">
+            <h3>Recent Orders</h3>
+            <button class="admin-link" onclick="showSection('orders')">View All →</button>
+          </div>
+          <table class="admin-table">
+            <thead>
+              <tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th></tr>
+            </thead>
+            <tbody id="recentOrdersBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Top Products -->
+        <div class="admin-table-card narrow">
+          <div class="table-card-header"><h3>Top Products</h3></div>
+          <div class="top-products" id="topProducts"></div>
+        </div>
+      </div>
     </section>
 
-    <!-- ========== HOT COLLECTIONS ========== -->
-    <section class="hot-collections" id="hot">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">🔥 Trending Now</span>
-                <h2 class="section-title">Hot Collections</h2>
-                <p class="section-subtitle">What everyone is wearing right now</p>
-            </div>
-
-            <!-- Filter Tabs -->
-            <div class="filter-tabs reveal">
-                <button class="tab active" data-filter="all">All</button>
-                <button class="tab" data-filter="shoes">Shoes</button>
-                <button class="tab" data-filter="perfumes">Perfumes</button>
-                <button class="tab" data-filter="watches">Watches</button>
-                <button class="tab" data-filter="accessories">Accessories</button>
-            </div>
-
-            <div class="products-grid" id="hotGrid">
-                <!-- Product Card -->
-                <div class="product-card reveal" data-cat="shoes">
-                    <div class="product-badge">HOT</div>
-                    <div class="product-image">
-                        <div class="product-placeholder"><i class="fa-solid fa-shoe-prints"></i></div>
-                        <div class="product-actions">
-                            <button class="action-btn" title="Wishlist"><i class="fa-regular fa-heart"></i></button>
-                            <button class="action-btn" title="Quick View"><i class="fa-regular fa-eye"></i></button>
-                            <button class="action-btn add-cart" title="Add to Cart"><i class="fa-solid fa-bag-shopping"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-brand">Bottega Veneta</span>
-                        <h4 class="product-name">The Slider Sandal</h4>
-                        <div class="product-rating">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <span>(128)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="price-current">$485</span>
-                            <span class="price-old">$620</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card reveal" data-cat="perfumes">
-                    <div class="product-badge new">NEW</div>
-                    <div class="product-image">
-                        <div class="product-placeholder perfume"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-                        <div class="product-actions">
-                            <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
-                            <button class="action-btn"><i class="fa-regular fa-eye"></i></button>
-                            <button class="action-btn add-cart"><i class="fa-solid fa-bag-shopping"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-brand">Tom Ford</span>
-                        <h4 class="product-name">Oud Wood EDP</h4>
-                        <div class="product-rating">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span>(256)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="price-current">$320</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card reveal" data-cat="watches">
-                    <div class="product-badge sale">SALE</div>
-                    <div class="product-image">
-                        <div class="product-placeholder watch"><i class="fa-solid fa-clock"></i></div>
-                        <div class="product-actions">
-                            <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
-                            <button class="action-btn"><i class="fa-regular fa-eye"></i></button>
-                            <button class="action-btn add-cart"><i class="fa-solid fa-bag-shopping"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-brand">Rolex</span>
-                        <h4 class="product-name">Submariner Date</h4>
-                        <div class="product-rating">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span>(512)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="price-current">$12,500</span>
-                            <span class="price-old">$14,200</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card reveal" data-cat="accessories">
-                    <div class="product-image">
-                        <div class="product-placeholder acc"><i class="fa-solid fa-glasses"></i></div>
-                        <div class="product-actions">
-                            <button class="action-btn"><i class="fa-regular fa-heart"></i></button>
-                            <button class="action-btn"><i class="fa-regular fa-eye"></i></button>
-                            <button class="action-btn add-cart"><i class="fa-solid fa-bag-shopping"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-brand">Cartier</span>
-                        <h4 class="product-name">Santos Sunglasses</h4>
-                        <div class="product-rating">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <span>(89)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="price-current">$890</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-cta reveal">
-                <a href="#" class="btn btn-primary">View All Hot Items</a>
-            </div>
+    <!-- PRODUCTS SECTION -->
+    <section id="section-products" class="admin-section">
+      <div class="section-toolbar">
+        <div class="toolbar-left">
+          <div class="admin-search">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="prodSearch" placeholder="Search products...">
+          </div>
+          <select id="prodCatFilter">
+            <option value="all">All Categories</option>
+            <option value="shoes">Shoes</option>
+            <option value="perfumes">Perfumes</option>
+            <option value="watches">Watches</option>
+            <option value="accessories">Accessories</option>
+          </select>
         </div>
+        <button class="btn-admin-primary" onclick="openAddProduct()">
+          <i class="fa-solid fa-plus"></i> Add Product
+        </button>
+      </div>
+
+      <div class="admin-table-card">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Product</th><th>Category</th><th>Price</th><th>Rating</th><th>Stock</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="productsTableBody"></tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- ========== MOST SALES ========== -->
-    <section class="most-sales" id="bestsellers">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Best Sellers</span>
-                <h2 class="section-title">Most Sales</h2>
-                <p class="section-subtitle">Our best performing luxury pieces this season</p>
-            </div>
-
-            <div class="sales-layout">
-                <!-- Left: Featured Product -->
-                <div class="sales-featured reveal">
-                    <div class="featured-badge">⭐ #1 Best Seller</div>
-                    <div class="featured-image">
-                        <div class="featured-placeholder">
-                            <i class="fa-solid fa-shoe-prints"></i>
-                        </div>
-                    </div>
-                    <div class="featured-info">
-                        <span class="product-brand">Christian Louboutin</span>
-                        <h3>Louis Flat Loafer</h3>
-                        <div class="product-rating">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span>4.9 (1,024 reviews)</span>
-                        </div>
-                        <p class="featured-desc">The iconic red-sole loafer. Handcrafted in Italian leather with meticulous attention to every detail.</p>
-                        <div class="product-price">
-                            <span class="price-current">$1,250</span>
-                        </div>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-
-                <!-- Right: Sales List -->
-                <div class="sales-list">
-                    <div class="sales-item reveal">
-                        <div class="sales-rank">02</div>
-                        <div class="sales-img">
-                            <div class="sales-placeholder"><i class="fa-solid fa-spray-can-sparkles"></i></div>
-                        </div>
-                        <div class="sales-details">
-                            <span>Creed</span>
-                            <h4>Aventus EDP 100ml</h4>
-                            <span class="price-current">$525</span>
-                        </div>
-                        <button class="sales-add"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sales-item reveal">
-                        <div class="sales-rank">03</div>
-                        <div class="sales-img">
-                            <div class="sales-placeholder watch"><i class="fa-solid fa-clock"></i></div>
-                        </div>
-                        <div class="sales-details">
-                            <span>Patek Philippe</span>
-                            <h4>Calatrava Pilot</h4>
-                            <span class="price-current">$32,000</span>
-                        </div>
-                        <button class="sales-add"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sales-item reveal">
-                        <div class="sales-rank">04</div>
-                        <div class="sales-img">
-                            <div class="sales-placeholder acc"><i class="fa-solid fa-tie"></i></div>
-                        </div>
-                        <div class="sales-details">
-                            <span>Hermès</span>
-                            <h4>Silk Pocket Square</h4>
-                            <span class="price-current">$185</span>
-                        </div>
-                        <button class="sales-add"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-
-                    <div class="sales-item reveal">
-                        <div class="sales-rank">05</div>
-                        <div class="sales-img">
-                            <div class="sales-placeholder"><i class="fa-solid fa-shoe-prints"></i></div>
-                        </div>
-                        <div class="sales-details">
-                            <span>Gucci</span>
-                            <h4>Horsebit Loafer</h4>
-                            <span class="price-current">$990</span>
-                        </div>
-                        <button class="sales-add"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-                </div>
-            </div>
+    <!-- ORDERS SECTION -->
+    <section id="section-orders" class="admin-section">
+      <div class="section-toolbar">
+        <div class="toolbar-left">
+          <div class="admin-search">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" placeholder="Search orders...">
+          </div>
+          <select>
+            <option>All Status</option>
+            <option>Pending</option>
+            <option>Processing</option>
+            <option>Shipped</option>
+            <option>Delivered</option>
+            <option>Cancelled</option>
+          </select>
         </div>
+        <button class="btn-admin-primary">
+          <i class="fa-solid fa-download"></i> Export CSV
+        </button>
+      </div>
+
+      <div class="admin-table-card">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Date</th><th>Action</th></tr>
+          </thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- ========== STATS SECTION ========== -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-item reveal">
-                <h3 class="stat-number" data-target="12500">0</h3>
-                <p>Happy Customers</p>
-            </div>
-            <div class="stat-item reveal">
-                <h3 class="stat-number" data-target="519">0</h3>
-                <p>Luxury Products</p>
-            </div>
-            <div class="stat-item reveal">
-                <h3 class="stat-number" data-target="48">0</h3>
-                <p>Global Brands</p>
-            </div>
-            <div class="stat-item reveal">
-                <h3 class="stat-number" data-target="99">0</h3>
-                <p>% Satisfaction</p>
-            </div>
+    <!-- CUSTOMERS SECTION -->
+    <section id="section-customers" class="admin-section">
+      <div class="section-toolbar">
+        <div class="toolbar-left">
+          <div class="admin-search">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" placeholder="Search customers...">
+          </div>
         </div>
+      </div>
+      <div class="admin-table-card">
+        <table class="admin-table">
+          <thead>
+            <tr><th>Customer</th><th>Email</th><th>Orders</th><th>Spent</th><th>Location</th><th>Joined</th></tr>
+          </thead>
+          <tbody id="customersBody"></tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- ========== UPCOMING SECTION ========== -->
-    <section class="upcoming" id="upcoming">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Coming Soon</span>
-                <h2 class="section-title">Upcoming Drops</h2>
-                <p class="section-subtitle">Be first to know when exclusive pieces drop</p>
-            </div>
-
-            <div class="upcoming-grid">
-                <div class="upcoming-card reveal">
-                    <div class="upcoming-image">
-                        <div class="upcoming-placeholder">
-                            <i class="fa-solid fa-shoe-prints"></i>
-                        </div>
-                        <div class="upcoming-overlay">
-                            <span class="coming-badge">Coming July 2025</span>
-                        </div>
-                    </div>
-                    <div class="upcoming-info">
-                        <h4>The Phantom Collection</h4>
-                        <p>Limited edition midnight leather shoes</p>
-                        <div class="countdown" data-date="2025-07-01">
-                            <div class="countdown-unit"><span class="days">00</span><small>Days</small></div>
-                            <div class="countdown-unit"><span class="hours">00</span><small>Hrs</small></div>
-                            <div class="countdown-unit"><span class="mins">00</span><small>Mins</small></div>
-                            <div class="countdown-unit"><span class="secs">00</span><small>Secs</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline">Notify Me</a>
-                    </div>
-                </div>
-
-                <div class="upcoming-card reveal">
-                    <div class="upcoming-image">
-                        <div class="upcoming-placeholder perfume">
-                            <i class="fa-solid fa-spray-can-sparkles"></i>
-                        </div>
-                        <div class="upcoming-overlay">
-                            <span class="coming-badge">Coming Aug 2025</span>
-                        </div>
-                    </div>
-                    <div class="upcoming-info">
-                        <h4>Noir Absolu Fragrance</h4>
-                        <p>A journey through rare Arabian ouds</p>
-                        <div class="countdown" data-date="2025-08-15">
-                            <div class="countdown-unit"><span class="days">00</span><small>Days</small></div>
-                            <div class="countdown-unit"><span class="hours">00</span><small>Hrs</small></div>
-                            <div class="countdown-unit"><span class="mins">00</span><small>Mins</small></div>
-                            <div class="countdown-unit"><span class="secs">00</span><small>Secs</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline">Notify Me</a>
-                    </div>
-                </div>
-
-                <div class="upcoming-card reveal">
-                    <div class="upcoming-image">
-                        <div class="upcoming-placeholder watch">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div class="upcoming-overlay">
-                            <span class="coming-badge">Coming Sept 2025</span>
-                        </div>
-                    </div>
-                    <div class="upcoming-info">
-                        <h4>Celestial Chronograph</h4>
-                        <p>Ultra-thin movement, platinum case</p>
-                        <div class="countdown" data-date="2025-09-20">
-                            <div class="countdown-unit"><span class="days">00</span><small>Days</small></div>
-                            <div class="countdown-unit"><span class="hours">00</span><small>Hrs</small></div>
-                            <div class="countdown-unit"><span class="mins">00</span><small>Mins</small></div>
-                            <div class="countdown-unit"><span class="secs">00</span><small>Secs</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline">Notify Me</a>
-                    </div>
-                </div>
-            </div>
+    <!-- ANALYTICS SECTION -->
+    <section id="section-analytics" class="admin-section">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon revenue"><i class="fa-solid fa-eye"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Page Views</span>
+            <strong class="kpi-value">84,291</strong>
+            <span class="kpi-change up">+22% vs last month</span>
+          </div>
         </div>
+        <div class="kpi-card">
+          <div class="kpi-icon orders"><i class="fa-solid fa-percent"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Conversion Rate</span>
+            <strong class="kpi-value">3.4%</strong>
+            <span class="kpi-change up">+0.8% vs last month</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon customers"><i class="fa-solid fa-cart-shopping"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Avg Order Value</span>
+            <strong class="kpi-value">$1,842</strong>
+            <span class="kpi-change up">+$210 vs last month</span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon products"><i class="fa-solid fa-repeat"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Return Rate</span>
+            <strong class="kpi-value">1.2%</strong>
+            <span class="kpi-change down">-0.3% improvement</span>
+          </div>
+        </div>
+      </div>
+      <div class="charts-row">
+        <div class="chart-card wide">
+          <div class="chart-header"><h3>Traffic Sources</h3></div>
+          <canvas id="trafficChart" height="100"></canvas>
+        </div>
+      </div>
     </section>
 
-    <!-- ========== BRANDS SECTION ========== -->
-    <section class="brands-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Our Partners</span>
-                <h2 class="section-title">Featured Brands</h2>
-            </div>
-            <div class="brands-strip">
-                <div class="brand-item reveal">Rolex</div>
-                <div class="brand-item reveal">Tom Ford</div>
-                <div class="brand-item reveal">Gucci</div>
-                <div class="brand-item reveal">Hermès</div>
-                <div class="brand-item reveal">Creed</div>
-                <div class="brand-item reveal">Louboutin</div>
-                <div class="brand-item reveal">Patek Philippe</div>
-                <div class="brand-item reveal">Cartier</div>
-            </div>
+    <!-- SETTINGS SECTION -->
+    <section id="section-settings" class="admin-section">
+      <div class="settings-grid">
+        <div class="settings-card">
+          <h3><i class="fa-solid fa-store"></i> Store Settings</h3>
+          <div class="form-group" style="margin-bottom:16px"><label>Store Name</label><input type="text" value="LUXE Store"></div>
+          <div class="form-group" style="margin-bottom:16px"><label>Currency</label><select><option>USD ($)</option><option>PKR (₨)</option><option>AED (د.إ)</option></select></div>
+          <div class="form-group" style="margin-bottom:16px"><label>Contact Email</label><input type="email" value="admin@luxestore.pk"></div>
+          <button class="btn-admin-primary">Save Settings</button>
         </div>
+        <div class="settings-card">
+          <h3><i class="fa-solid fa-truck"></i> Shipping Settings</h3>
+          <div class="form-group" style="margin-bottom:16px"><label>Free Shipping Threshold</label><input type="number" value="500"></div>
+          <div class="form-group" style="margin-bottom:16px"><label>Standard Shipping Rate</label><input type="number" value="25"></div>
+          <div class="form-group" style="margin-bottom:16px"><label>Express Shipping Rate</label><input type="number" value="50"></div>
+          <button class="btn-admin-primary">Save Shipping</button>
+        </div>
+        <div class="settings-card">
+          <h3><i class="fa-solid fa-lock"></i> Security</h3>
+          <div class="form-group" style="margin-bottom:16px"><label>Admin Password</label><input type="password" placeholder="••••••••"></div>
+          <div class="form-group" style="margin-bottom:16px"><label>Confirm Password</label><input type="password" placeholder="••••••••"></div>
+          <button class="btn-admin-primary">Update Password</button>
+        </div>
+      </div>
     </section>
 
-    <!-- ========== TESTIMONIALS ========== -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Client Love</span>
-                <h2 class="section-title">What They Say</h2>
-                <p class="section-subtitle">Real experiences from our luxury clientele</p>
-            </div>
+  </div><!-- /admin-content -->
+</div><!-- /admin-main -->
 
-            <div class="testimonials-slider">
-                <div class="testimonial-track" id="testimonialTrack">
-                    <div class="testimonial-card">
-                        <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
-                        <p>"The Louboutin loafers I ordered arrived in perfect condition. The quality is unmatched — every stitch speaks of true craftsmanship. LUXE is my go-to for everything luxury."</p>
-                        <div class="testi-author">
-                            <div class="testi-avatar">AK</div>
-                            <div>
-                                <h5>Ahmed Khan</h5>
-                                <span>Lahore, Pakistan ⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
-                        <p>"Tom Ford Oud Wood is my signature scent and LUXE had it for the best price with authentic guarantee. Fast shipping, beautiful packaging. Truly luxurious experience."</p>
-                        <div class="testi-author">
-                            <div class="testi-avatar">MR</div>
-                            <div>
-                                <h5>Marcus Reid</h5>
-                                <span>Dubai, UAE ⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
-                        <p>"I purchased a Rolex Submariner as an anniversary gift. The authentication process was transparent and the watch arrived exactly as described. Outstanding service."</p>
-                        <div class="testi-author">
-                            <div class="testi-avatar">JA</div>
-                            <div>
-                                <h5>James Anderson</h5>
-                                <span>London, UK ⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
-                        <p>"LUXE curates only the finest pieces. I've ordered three times now — shoes, a watch, and accessories. Every single order has exceeded my expectations."</p>
-                        <div class="testi-author">
-                            <div class="testi-avatar">RS</div>
-                            <div>
-                                <h5>Rahul Sharma</h5>
-                                <span>Mumbai, India ⭐⭐⭐⭐⭐</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testi-nav">
-                    <button id="testiPrev"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button id="testiNext"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-            </div>
+<!-- ADD PRODUCT MODAL -->
+<div class="admin-modal" id="addProductModal">
+  <div class="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Add New Product</h3>
+      <button onclick="closeModal()"><i class="fa-solid fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group"><label>Brand</label><input type="text" id="newBrand" placeholder="Tom Ford"></div>
+        <div class="form-group"><label>Product Name</label><input type="text" id="newName" placeholder="Oud Wood EDP"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Category</label>
+          <select id="newCategory">
+            <option value="shoes">Shoes</option>
+            <option value="perfumes">Perfumes</option>
+            <option value="watches">Watches</option>
+            <option value="accessories">Accessories</option>
+          </select>
         </div>
-    </section>
+        <div class="form-group"><label>Price ($)</label><input type="number" id="newPrice" placeholder="320"></div>
+      </div>
+      <div class="form-row full">
+        <div class="form-group"><label>Image URL</label><input type="text" id="newImage" placeholder="https://images.unsplash.com/..."></div>
+      </div>
+      <div class="form-row full">
+        <div class="form-group"><label>Description</label><textarea id="newDesc" rows="3" placeholder="Product description..."></textarea></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-admin-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn-admin-primary" onclick="saveProduct()">Save Product</button>
+    </div>
+  </div>
+</div>
 
-    <!-- ========== NEWSLETTER ========== -->
-    <section class="newsletter">
-        <div class="newsletter-content reveal">
-            <span class="section-tag">Exclusive Access</span>
-            <h2>Join The Inner Circle</h2>
-            <p>Get early access to new drops, exclusive deals, and style guides curated by our luxury experts.</p>
-            <div class="newsletter-form">
-                <input type="email" placeholder="Enter your email address">
-                <button class="btn btn-primary">Subscribe</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== FOOTER ========== -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="footer-grid">
-                    <!-- Brand Column -->
-                    <div class="footer-col brand-col">
-                        <div class="footer-logo">LUXE</div>
-                        <p>The destination for discerning gentlemen seeking the finest in luxury fashion, fragrance, and timepieces.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Shop Column -->
-                    <div class="footer-col">
-                        <h4>Shop</h4>
-                        <ul>
-                            <li><a href="#">Luxury Shoes</a></li>
-                            <li><a href="#">Premium Perfumes</a></li>
-                            <li><a href="#">Luxury Watches</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">New Arrivals</a></li>
-                            <li><a href="#">Sale</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Info Column -->
-                    <div class="footer-col">
-                        <h4>Information</h4>
-                        <ul>
-                            <li><a href="#">About LUXE</a></li>
-                            <li><a href="#">Our Story</a></li>
-                            <li><a href="#">Authenticity Guarantee</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Press</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Support Column -->
-                    <div class="footer-col">
-                        <h4>Support</h4>
-                        <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Returns & Exchanges</a></li>
-                            <li><a href="#">Shipping Info</a></li>
-                            <li><a href="#">Size Guide</a></li>
-                            <li><a href="#">FAQs</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact Column -->
-                    <div class="footer-col">
-                        <h4>Contact</h4>
-                        <div class="contact-info">
-                            <p><i class="fa-solid fa-location-dot"></i> Liberty Market, Lahore, Pakistan</p>
-                            <p><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
-                            <p><i class="fa-solid fa-envelope"></i> hello@luxestore.pk</p>
-                        </div>
-                        <div class="payment-icons">
-                            <i class="fa-brands fa-cc-visa"></i>
-                            <i class="fa-brands fa-cc-mastercard"></i>
-                            <i class="fa-brands fa-cc-paypal"></i>
-                            <i class="fa-brands fa-cc-apple-pay"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 LUXE Store. All rights reserved. | Made with ❤️ in Lahore</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top -->
-    <button id="backToTop" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
-
-    <!-- JS Files -->
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../js/store.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>
