@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — LUXE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .success-page {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 120px 24px 60px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    }
+    .success-box {
+      max-width: 720px; width: 100%; text-align: center;
+    }
+    .success-icon {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: rgba(39,174,96,0.1);
+      border: 2px solid #27ae60;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 32px; font-size: 2.5rem; color: #27ae60;
+      animation: scaleIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes scaleIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .success-box h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .success-box h1 em { font-style: italic; color: var(--gold); }
+    .success-box > p { color: var(--grey); font-size: 0.9rem; margin-bottom: 40px; }
+    .order-card {
+      background: var(--dark);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px; padding: 32px;
+      margin-bottom: 32px; text-align: left;
+    }
+    .order-meta {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 24px; margin-bottom: 28px;
+      padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .order-meta-item span {
+      font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--grey); display: block; margin-bottom: 4px;
+    }
+    .order-meta-item strong { font-size: 0.88rem; color: var(--gold); }
+    .order-items-list { display: flex; flex-direction: column; gap: 12px; }
+    .order-line-item {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .order-line-item img {
+      width: 56px; height: 56px; object-fit: cover; border-radius: 4px;
+    }
+    .order-line-item div { flex: 1; }
+    .order-line-item div small { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); display: block; }
+    .order-line-item div span { font-size: 0.82rem; }
+    .order-line-item strong { font-size: 0.88rem; color: var(--white); }
+    .track-bar {
+      display: flex; justify-content: space-between; position: relative;
+      margin: 32px 0; padding: 0 16px;
+    }
+    .track-bar::before {
+      content: ''; position: absolute; top: 16px;
+      left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(to right, var(--gold) 20%, var(--dark-3) 20%);
+    }
+    .track-step { display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 2; }
+    .track-icon {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 0.85rem;
+    }
+    .track-icon.done { background: var(--gold); color: var(--black); }
+    .track-icon.pending { background: var(--dark-3); color: var(--grey); border: 1px solid var(--dark-3); }
+    .track-step small { font-size: 0.6rem; color: var(--grey); letter-spacing: 0.08em; white-space: nowrap; }
+    .success-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+<header id="header">
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html">LUXE</a></div>
+    <div class="nav-right">
+      <a href="shop.html" class="nav-link">Continue Shopping</a>
+    </div>
+  </nav>
+</header>
+
+<div class="success-page">
+  <div class="success-box">
+    <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+    <h1>Order <em>Confirmed!</em></h1>
+    <p id="successSubtitle">Thank you for your purchase. A confirmation email has been sent to your inbox.</p>
+
+    <div class="order-card">
+      <div class="order-meta" id="orderMeta"></div>
+
+      <!-- Tracking Timeline -->
+      <div style="margin-bottom:20px">
+        <div style="font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);margin-bottom:16px">Order Status</div>
+        <div class="track-bar">
+          <div class="track-step">
+            <div class="track-icon done"><i class="fa-solid fa-check"></i></div>
+            <small>Confirmed</small>
+          </div>
+          <div class="track-step">
+            <div class="track-icon pending"><i class="fa-solid fa-box"></i></div>
+            <small>Processing</small>
+          </div>
+          <div class="track-step">
+            <div class="track-icon pending"><i class="fa-solid fa-truck"></i></div>
+            <small>Shipped</small>
+          </div>
+          <div class="track-step">
+            <div class="track-icon pending"><i class="fa-solid fa-house"></i></div>
+            <small>Delivered</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-items-list" id="orderItems"></div>
+    </div>
+
+    <div class="checkout-steps" style="margin-bottom:32px">
+      <div class="step done"><span><i class="fa-solid fa-check" style="font-size:0.65rem"></i></span> Cart</div>
+      <div class="step-line" style="background:var(--gold)"></div>
+      <div class="step done"><span><i class="fa-solid fa-check" style="font-size:0.65rem"></i></span> Checkout</div>
+      <div class="step-line" style="background:var(--gold)"></div>
+      <div class="step active"><span><i class="fa-solid fa-check" style="font-size:0.65rem"></i></span> Confirmed</div>
+    </div>
+
+    <div class="success-actions">
+      <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+      <a href="index.html" class="btn btn-outline">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/store.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const order = JSON.parse(localStorage.getItem('luxe_last_order') || '{}');
+  if (!order.id) { window.location = 'index.html'; return; }
+
+  document.getElementById('successSubtitle').textContent =
+    `Thank you ${order.name}! Order confirmation sent to ${order.email}`;
+
+  document.getElementById('orderMeta').innerHTML = `
+    <div class="order-meta-item"><span>Order ID</span><strong>#${order.id}</strong></div>
+    <div class="order-meta-item"><span>Date</span><strong>${order.date}</strong></div>
+    <div class="order-meta-item"><span>Delivery to</span><strong>${order.address}</strong></div>
+    <div class="order-meta-item"><span>Total Paid</span><strong style="font-size:1rem">${fmt(order.total)}</strong></div>
+  `;
+
+  document.getElementById('orderItems').innerHTML = order.items.map(item => `
+    <div class="order-line-item">
+      <img src="${item.image}" alt="${item.name}">
+      <div>
+        <small>${item.brand}</small>
+        <span>${item.name} × ${item.qty}</span>
+      </div>
+      <strong>${fmt(item.price * item.qty)}</strong>
+    </div>
+  `).join('');
+});
+</script>
+</body>
+</html>
